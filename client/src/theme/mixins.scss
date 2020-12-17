@@ -1,0 +1,7 @@
+@mixin backgroundWithImage($imagePath, $position:0 0, $repeat: no-repeat) {
+  background: {
+    image: url($imagePath);
+    position: $position;
+    repeat: $repeat;
+  }
+}

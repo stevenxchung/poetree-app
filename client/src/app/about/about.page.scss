@@ -1,0 +1,8 @@
+.back {
+  --background: url('~src/assets/photos/aman.jpg') no-repeat center/cover fixed;
+}
+
+.front {
+  --background: url('~src/assets/photos/aman-grayscale.jpg') no-repeat center/cover fixed;
+  animation: fadein 1s;
+}
