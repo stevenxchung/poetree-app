@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Constants } from './constants';
+import { ContentService } from '../services/content.service';
 
 @Component({
   selector: 'home-page',
@@ -18,7 +18,7 @@ import { Constants } from './constants';
           </ion-toolbar>
         </ion-header>
         <div class="home-page-container">
-          <h1>Poetry</h1>
+          <h1>Poem of the Month</h1>
           <p [innerHTML]="poemOfTheMonth"></p>
         </div>
       </ion-content>
@@ -28,11 +28,19 @@ import { Constants } from './constants';
 })
 export class HomePage {
   poemOfTheMonth: string;
-  getFormattedPoem = (): string => {
+
+  constructor(private content: ContentService) {
+    content
+      .getPoemOfTheMonth()
+      .subscribe(
+        (res) => (this.poemOfTheMonth = this.getFormattedPoem(res[0].poem))
+      );
+  }
+
+  // Helper method to format poem from DB
+  getFormattedPoem = (poem: string): string => {
     const separators = ['\\,', '\\.', '\\?'];
-    const stringToArray = Constants.POTM.split(
-      new RegExp(separators.join('|'), 'g')
-    );
+    const stringToArray = poem.split(new RegExp(separators.join('|'), 'g'));
 
     let count = 0;
     stringToArray.forEach((s, i) => {
@@ -50,8 +58,4 @@ export class HomePage {
 
     return stringToArray.join('');
   };
-
-  constructor() {
-    this.poemOfTheMonth = this.getFormattedPoem();
-  }
 }
