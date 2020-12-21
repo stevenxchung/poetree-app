@@ -18,6 +18,7 @@ Due to some hacks mentioned above, we can actually run the entire built applicat
 2. Build the compressed client archive with `npm run build`
 3. Navigate back to the root directory
 4. Start the application in production mode via `npm run start:prod`
+5. You should be able to see the full application running on `http://localhost:3000/`
 
 **Note**: remember to remove the extracted `rm -rf public` folder after running this way.
 
