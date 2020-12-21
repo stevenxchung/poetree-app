@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ContentService {
   // For local only
-  local: string = 'http://localhost:8080/content';
+  local: string = 'http://localhost:3000/content';
   deployed: string = 'https://poetree-app.herokuapp.com/content';
 
   constructor(private http: HttpClient) {}
