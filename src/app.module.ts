@@ -15,7 +15,7 @@ import { ContentModule } from './content/content.module';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
     }),
-    MongooseModule.forRoot(process.env.MONGODB_URI.toString()),
+    MongooseModule.forRoot(process.env.MONGODB_URI),
   ],
 })
 export class AppModule {}
