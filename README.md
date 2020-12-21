@@ -1,8 +1,8 @@
 # Poetree App
 
-Lightweight PWA ([Progressive Web App](https://web.dev/progressive-web-apps/)) built with [Ionic](https://ionicframework.com/). This application stores "Poem of The Month" (used to publish a new one every month) since Facebook got rid of their *Notes* feature 🙄. I am not sure how extensive this app should be, maybe I will add on extra features (e.g., archives) if I feel the burning desire to.
+Lightweight PWA ([Progressive Web App](https://web.dev/progressive-web-apps/)) built with [Ionic](https://ionicframework.com/). This application stores "Poem of The Month" (used to publish a new one every month) since Facebook got rid of their *Notes* feature 🙄. I have not decided on how extensive this app should be, maybe I will add on extra features (e.g., archives) if I feel the burning desire to.
 
-This is a full-stack application hosted in the cloud using Ionic on the front-end and NestJS on the back-end. MongoDB is used to store poems of the month.
+This is a full-stack application hosted in the cloud via Heroku built with Ionic on the front-end and NestJS on the back-end. MongoDB is used to store poems of the month.
 
 ## Local Run
 
