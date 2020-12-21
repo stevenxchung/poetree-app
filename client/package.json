@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "npm run build:setup && ng build && npm run build:compress && npm run build:cleanup",
+    "build": "npm run build:setup && ng build --prod && npm run build:compress && npm run build:cleanup",
     "build:setup": "rimraf ../public ../public.tar.gz",
     "build:cleanup": "rimraf ../public",
     "build:compress": "cd ../ && tar czf public.tar.gz public",
