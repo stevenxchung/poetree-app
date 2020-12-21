@@ -15,15 +15,7 @@ import { ContentModule } from './content/content.module';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
     }),
-    MongooseModule.forRoot(
-      'mongodb+srv://' +
-        encodeURIComponent(process.env.DB_USER) +
-        ':' +
-        encodeURIComponent(process.env.DB_PASSWORD) +
-        process.env.CLUSTER_NAME +
-        encodeURIComponent(process.env.DB_NAME) +
-        '?retryWrites=true&w=majority',
-    ),
+    MongooseModule.forRoot(process.env.MONGODB_URI),
   ],
 })
 export class AppModule {}
