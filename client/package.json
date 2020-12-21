@@ -6,7 +6,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run build:setup && ng build && npm run build:compress && npm run build:cleanup",
+    "build:setup": "rimraf ../public ../public.tar.gz",
+    "build:cleanup": "rimraf ../public",
+    "build:compress": "cd ../ && tar czf public.tar.gz public",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

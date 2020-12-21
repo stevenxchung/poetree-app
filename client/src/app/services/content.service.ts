@@ -1,19 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContentService {
-  // For local only
-  local: string = 'http://localhost:3000/content';
-  deployed: string = 'https://poetree-app.herokuapp.com/content';
-
   constructor(private http: HttpClient) {}
 
   getPoemOfTheMonth(): Observable<any> {
-    // Must use this.deployed when deployed
-    return this.http.get(this.deployed);
+    return this.http.get(environment.api);
   }
 }
