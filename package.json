@@ -1,8 +1,8 @@
 {
   "name": "server",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Application which displays poems of the month written by me.",
+  "author": "Steven Chung",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
