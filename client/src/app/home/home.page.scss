@@ -25,13 +25,14 @@
   }
 
   p.poem-of-the-month {
+    margin: 5% auto;
+    line-height: 1.75rem;
     font-size: 1rem;
   }
 }
 
 @mixin home-page-content {
   .home-page-container {
-    margin: 10% auto;
     width: 75%;
     padding: 1.5rem;
 
@@ -40,6 +41,7 @@
     }
 
     p.poem-of-the-month {
+      margin: 10% auto;
       font-size: 1rem;
     }
   }
