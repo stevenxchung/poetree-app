@@ -6,7 +6,7 @@ import { ContentService } from '../services/content.service';
   template: `
     <ion-header [translucent]="true">
       <ion-toolbar>
-        <ion-title> Home</ion-title>
+        <ion-title>Home</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -18,8 +18,8 @@ import { ContentService } from '../services/content.service';
           </ion-toolbar>
         </ion-header>
         <div class="home-page-container">
-          <h1>Poem of the Month</h1>
-          <p [innerHTML]="poemOfTheMonth"></p>
+          <h1 class="poem-header">Monthly Poetry</h1>
+          <p class="poem-of-the-month" [innerHTML]="poemOfTheMonth"></p>
         </div>
       </ion-content>
     </ion-content>
