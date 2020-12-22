@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <ion-header [translucent]="true">
       <ion-toolbar>
-        <ion-title> About </ion-title>
+        <ion-title>About</ion-title>
       </ion-toolbar>
     </ion-header>
 
