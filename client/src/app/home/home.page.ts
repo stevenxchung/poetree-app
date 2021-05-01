@@ -39,20 +39,21 @@ export class HomePage {
 
   // Helper method to format poem from DB
   getFormattedPoem = (poem: string): string => {
-    const separators = ['\\,', '\\.', '\\?'];
-    const stringToArray = poem.split(new RegExp(separators.join('|'), 'g'));
+    const separatorMap = { ',': ',+', '.': '.+', '?': '?+' };
+    const separatorReplacedPoem = poem.replace(
+      /[,.?]/g,
+      (s) => separatorMap[s]
+    );
+    const stringToArray = separatorReplacedPoem.split('+');
 
     let count = 0;
     stringToArray.forEach((s, i) => {
       count += 1;
-      if (count === 4 && i === stringToArray.length - 2) {
-        stringToArray[i] = s + `.<br/><br/>`;
-        count = 0;
-      } else if (count === 4) {
-        stringToArray[i] = s + `,<br/><br/>`;
+      if (count === 4) {
+        stringToArray[i] = s + `<br/><br/>`;
         count = 0;
       } else if (i !== stringToArray.length - 1) {
-        stringToArray[i] = s + `,<br/>`;
+        stringToArray[i] = s + `<br/>`;
       }
     });
 
