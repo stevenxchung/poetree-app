@@ -36,3 +36,4 @@ lerna-debug.log*
 # Extras
 .env
 public
+*.angular
