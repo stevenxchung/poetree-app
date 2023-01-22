@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
     </ion-header>
 
     <ion-content class="back" [fullscreen]="true">
-      <ion-content class="front" [fullscreen]="true">
+      <ion-content class="front">
         <about-container name="GitHub"></about-container>
       </ion-content>
     </ion-content>

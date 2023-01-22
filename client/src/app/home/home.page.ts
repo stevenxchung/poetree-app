@@ -11,7 +11,7 @@ import { ContentService } from '../services/content.service';
     </ion-header>
 
     <ion-content class="back" [fullscreen]="true">
-      <ion-content class="front" [fullscreen]="true">
+      <ion-content class="front">
         <ion-header collapse="condense">
           <ion-toolbar>
             <ion-title size="large">Home</ion-title>
