@@ -1,40 +1,28 @@
-# Poetree App
+# Create T3 App
 
-Lightweight PWA ([Progressive Web App](https://web.dev/progressive-web-apps/)) built with [Ionic](https://ionicframework.com/), [NestJS](https://nestjs.com/), and [MongoDB](https://www.mongodb.com/). This application stores "Poem of The Month" (used to publish a new one every month) since Facebook got rid of their *Notes* feature 🙄. I have not decided on how extensive this app should be, maybe I will add on extra features (e.g., archives) if I feel the burning desire to.
+This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
-## How It Works
+## What's next? How do I make an app with this?
 
-This is a full-stack application hosted in the Cloud via Heroku built with Ionic on the front-end and NestJS on the back-end. MongoDB is used to store poems of the month.
+We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
 
-Heroku builds the project with `npm run build` which follows the build steps highlighted in the root `package.json`. Then, Heroku references the `Procfile` to run `npm run start:prod` which serves the API layer from the generated `dist` folder. You may notice that there is a compressed `public` tar file in this repository which is generated from the `client` directory from the application build process via `npm run build`. This is necessary since the API will actually unpack and serve the UI via [ServeStaticModule](https://github.com/stevenxchung/Poetree-App/blob/d7f116f3d2ac8e5595a6995278a28c21af6825b1/src/app.module.ts#L15). Consequently, the front-end and back-end applications are able to run on the same instance after successful Heroku deploy to the Cloud.
+If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
 
-## Local Run
+- [Next.js](https://nextjs.org)
+- [NextAuth.js](https://next-auth.js.org)
+- [Prisma](https://prisma.io)
+- [Tailwind CSS](https://tailwindcss.com)
+- [tRPC](https://trpc.io)
 
-### Productionized Start
+## Learn More
 
-Due to some hacks mentioned above, we can actually run the entire built application locally (useful for testing new builds) on the same port:
+To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
 
-1. Begin with `cd client` directory
-2. Build the compressed client archive with `npm run build`
-3. Navigate back to the root directory
-4. Start the application in production mode via `npm run start:prod`
-5. You should be able to see the full application running on `http://localhost:3000/`
+- [Documentation](https://create.t3.gg/)
+- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
 
-**Note**: remember to remove the extracted `rm -rf public` folder after running this way.
+You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
 
-### Front-end:
+## How do I deploy this?
 
-1. Ensure you are in the `client` directory
-2. If running for the first time, trigger a clean install via `npm ci`
-3. To start the web app run `ionic serve`
-
-### Back-end:
-
-1. If running for the first time, trigger a clean install via `npm ci`
-2. To start the API run `npm start`
-
-**Note**: to get automatic restart run `npm run start:dev`.
-
-## Other Features
-
-There is full CRUD functionality on the API layer. However, creating, updating, and deleting posts are only available with proper credentials. In the future, I may add this as a feature on the UI.
+Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
