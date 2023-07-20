@@ -103,7 +103,6 @@ export default function Home() {
       if (!data) {
         toast.error("Unauthorized!");
       }
-      console.log("API Error:", data);
     }
   }, [refetch, submitted, data]);
 
