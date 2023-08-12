@@ -1,5 +1,6 @@
+import { type NextPage } from "next";
 import Head from "next/head";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
 import { api } from "~/utils/api";
@@ -15,20 +16,18 @@ const formatPoemFromDB = (poem: string): string => {
     /[,.?]/g,
     (s) => separatorMap[s] || s
   );
-  const stringToArray = separatorReplacedPoem.split("+");
 
-  let count = 0;
-  stringToArray.forEach((s, i) => {
-    count += 1;
-    if (count === 4) {
-      stringToArray[i] = s + "<br/><br/>";
-      count = 0;
+  const stringToArray = separatorReplacedPoem.split("+");
+  const formattedArray = stringToArray.map((s, i) => {
+    if ((i + 1) % 4 === 0) {
+      return `${s}<br/><br/>`;
     } else if (i !== stringToArray.length - 1) {
-      stringToArray[i] = s + "<br/>";
+      return `${s}<br/>`;
     }
+    return s;
   });
 
-  return stringToArray.join("");
+  return formattedArray.join("");
 };
 
 const BackgroundMusic = () => {
@@ -74,37 +73,20 @@ const HiddenContent = (props: { content: string }) => {
   );
 };
 
-export default function Home() {
+const Home: NextPage = () => {
   const { register, handleSubmit, reset } = useForm();
-  const [secret, setSecret] = useState("");
-  const [submitted, setSubmitted] = useState(false);
 
-  const { data, refetch } = api.poetry.viewContent.useQuery(
-    { contentPass: secret },
-    { enabled: false }
-  );
+  const { data, mutate } = api.poetry.viewContent.useMutation({
+    onError: (e) => {
+      console.error(e);
+      toast.error("Unauthorized!");
+    },
+  });
 
-  const submitPass = (input: { pass: string }) => {
-    try {
-      reset();
-      setSecret(input.pass);
-      setSubmitted(true); // Mark the form as submitted
-    } catch (error) {
-      console.error(error);
-    }
+  const submitPass = (input: { password: string }) => {
+    reset();
+    mutate({ contentPass: input.password });
   };
-
-  // Use refetch when the form is submitted
-  useEffect(() => {
-    if (submitted) {
-      void refetch();
-      setSubmitted(false); // Reset the submitted state
-
-      if (!data) {
-        toast.error("Unauthorized!");
-      }
-    }
-  }, [refetch, submitted, data]);
 
   return (
     <>
@@ -128,7 +110,7 @@ export default function Home() {
                   className="text-center"
                   placeholder="Password"
                   type="password"
-                  {...register("pass")}
+                  {...register("password")}
                 />
               </label>
               <button
@@ -145,4 +127,6 @@ export default function Home() {
       </main>
     </>
   );
-}
+};
+
+export default Home;

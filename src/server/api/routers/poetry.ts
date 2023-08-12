@@ -12,7 +12,8 @@ export const poetryRouter = createTRPCRouter({
         contentPass: z.string(),
       })
     )
-    .query(async ({ ctx, input }) => {
+    // Use mutation since we need to be authenticated
+    .mutation(async ({ ctx, input }) => {
       if (input.contentPass != env.CONTENT_PASS) {
         throw new TRPCError({ code: "UNAUTHORIZED" });
       }
