@@ -43,7 +43,7 @@ const BackgroundMusic = () => {
     }
   });
 
-  return <audio ref={audioRef} src="/music/waves.mp3" loop />;
+  return <audio ref={audioRef} src="/music/ambien.mp3" loop />;
 };
 
 const HiddenContent = (props: { content: string }) => {
